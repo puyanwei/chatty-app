@@ -36,10 +36,21 @@ message.addEventListener('keypress', () => {
 
 socketFE.on('chat', data => {
     feedback.innerHTML = '';
-    output.innerHTML += `<h3><strong>${data.handle}</strong></h3>
-    <p>${data.message}</p>`;
+    output.innerHTML += `<div class="chat-message"><h3><strong>${
+        data.handle
+    } - ${timeAndDate()}</strong></h3>
+    <p>${data.message}</p>
+    </div>`;
 });
 
 socketFE.on('typing', data => {
     feedback.innerHTML = `<p><em>${data} is typing a message...</em></p>`;
 });
+
+// Add time and date
+const timeAndDate = () => {
+    let date = new Date();
+    let timeOfDay = date.toTimeString().slice(0, 5);
+    let dayOfMonth = date.toDateString();
+    return `${dayOfMonth} - ${timeOfDay}`;
+};
