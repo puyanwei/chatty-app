@@ -11,7 +11,13 @@ const server = app.listen(4000, () => {
 app.use(express.static('public'));
 
 // Socket setup backend & pass server
-const io = socket(server);
-io.on('connection', data => {
-    console.log('made socket connection', data.id);
+let io = socket(server);
+
+io.on('connection', socket => {
+    console.log('made socket connection', socket.id);
+
+    // When click event is heard
+    socket.on('chat', data => {
+        io.sockets.emit('chat', data);
+    });
 });
