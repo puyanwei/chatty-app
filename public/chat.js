@@ -36,9 +36,8 @@ message.addEventListener('keypress', () => {
 
 socketFE.on('chat', data => {
     feedback.innerHTML = '';
-    output.innerHTML += `<p><strong>${data.handle}   </strong>${
-        data.message
-    }</p>`;
+    output.innerHTML += `<h3><strong>${data.handle}</strong></h3>
+    <p>${data.message}</p>`;
 });
 
 socketFE.on('typing', data => {
