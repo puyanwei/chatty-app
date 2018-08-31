@@ -16,6 +16,7 @@ button.addEventListener('click', () => {
         message: message.value,
         handle: handle.value
     });
+    message.value = '';
 });
 
 // Listen for events

@@ -16,7 +16,7 @@ let io = socket(server);
 io.on('connection', socket => {
     console.log('made socket connection', socket.id);
 
-    // When click event is heard
+    // Handle chat event
     socket.on('chat', data => {
         io.sockets.emit('chat', data);
     });
