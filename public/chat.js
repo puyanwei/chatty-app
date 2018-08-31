@@ -12,11 +12,13 @@ let output = document.getElementById('output');
 // Emit events
 
 button.addEventListener('click', () => {
-    socketFE.emit('chat', {
-        message: message.value,
-        handle: handle.value
-    });
-    message.value = '';
+    if (message.value !== '' && handle.value !== '') {
+        socketFE.emit('chat', {
+            message: message.value,
+            handle: handle.value
+        });
+        message.value = '';
+    }
 });
 
 message.addEventListener('keyup', event => {
@@ -29,7 +31,7 @@ message.addEventListener('keyup', event => {
 // Listen for events
 
 socketFE.on('chat', data => {
-    output.innerHTML += `<p><strong>${data.handle} - </strong>${
+    output.innerHTML += `<p><strong>${data.handle}   </strong>${
         data.message
     }</p>`;
 });
