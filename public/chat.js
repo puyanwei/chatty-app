@@ -52,6 +52,5 @@ const timeAndDate = () => {
     let date = new Date();
     let timeOfDay = date.toTimeString().slice(0, 5);
     let dayOfMonth = date.toDateString().slice(0, 11);
-    console.log(dayOfMonth);
     return `${dayOfMonth} @ ${timeOfDay}`;
 };
