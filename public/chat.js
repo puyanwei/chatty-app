@@ -1,6 +1,6 @@
 // Make connection from front end
 
-const socketFE = io.connect('http://localhost:4000');
+const socketFE = io.connect('https://chatty-app2.herokuapp.com:17989');
 
 // Query the DOM
 
